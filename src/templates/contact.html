@@ -1,0 +1,8 @@
+{% load crispy_forms_tags %}
+
+{% if form %} {#If the form does not render, do not show the submit button either#}
+<form method="POST" action=""> {% csrf_token %}
+{{ form|crispy }}
+    <input type="submit" value="Submit" class="btn btn-default" />
+</form>
+{% endif %}

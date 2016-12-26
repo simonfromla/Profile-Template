@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block banner %}
+    <div class="container-fluid header">
+        <nav>
+            <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="/">Simon Jung</a></li>
+            <li role="presentation" class="pull-right"><a href="#contact"><i class="fa fa-envelope-o fa-2x"></i></a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+        <h1>Hey, you've reached my site! Take a look around.</h1>
+    </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                {% include 'projects_list_display.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

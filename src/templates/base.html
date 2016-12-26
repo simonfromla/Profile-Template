@@ -1,0 +1,69 @@
+{% load staticfiles %}
+
+<!--DOCTYPE html -->
+<html>
+<head>
+<title>{% block head_title %}Simon Jung{% endblock head_title %}</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<link rel='stylesheet' href='{% static "css/base.css" %}' />
+
+<script src="https://use.fontawesome.com/fd48b577a9.js"></script>
+
+
+</head>
+
+
+<body>
+
+{% include 'messages_display.html' %}
+
+
+
+<header>
+
+{#    <div class="container-fluid header">#}
+{#        <nav>#}
+{#            <ul class="nav nav-pills">#}
+{#            <li role="presentation" class="active"><a href="/">Simon Jung</a></li>#}
+{#            <li role="presentation" class="pull-right"><a href="#contact"><i class="fa fa-envelope-o fa-2x"></i></a></li>#}
+{#            </ul>#}
+{#        </nav>#}
+{#        <div class="header-text">#}
+        {% block banner %}
+        {% endblock %}
+{#        </div>#}
+{#    </div>#}
+</header>
+
+<section>
+    {% block content %}
+    {% endblock %}
+</section>
+
+<footer>
+    {% include "footer.html" %}
+    <a name="contact"></a>
+</footer>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+<script type="text/javascript">
+
+// JS and JQ goes here
+
+</script>
+
+</body>
+</html>

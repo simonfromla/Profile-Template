@@ -1,0 +1,42 @@
+{% load extra_filters %}
+<p class="lead projects_heading">Check out some of my recent projects</p>
+
+{% for project_triplet in projects|getsubdivisions:"3" %}
+<div class="row">
+    {% for project in project_triplet %}
+    <div class="col-md-4">
+        <a href="{{project.get_absolute_url}}">
+{#            <img class="thumbnail project_thumbnail img-responsive" alt="Thumbnail" src="{{project.get_thumbnail}}">#}
+            <h2>{{project.title}}</h2>
+        </a>
+
+        <div class="row">
+            <div class="col-md-12 skills">
+            {% for skill in project.skills.all %}
+    {#        <img src="{{ skill.get_thumbnail }}" class="img-responsive" width="70px"/>#}
+                <div class="{{ skill.name }}"> {{ skill.name }} |</div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 short-description">
+                <p>{{project.description|truncatewords:"15"|capfirst}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 links">
+            <p>
+                {% for link in project.related_links.all %}
+                <a href="{{ link }}"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+                {% endfor %}
+                <a href="{% url 'projects:detail' project.slug %}"><i class="fa fa-external-link-square fa-2x" aria-hidden="true"></i></a>
+            </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    <br/><br/>
+{% empty %}
+<h3>No projects found.</h3>
+{% endfor %}

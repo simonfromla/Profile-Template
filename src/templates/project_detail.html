@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block banner %}
+
+{#    Depending on which instance(project) change the banner colors#}
+    {% if instance %}
+        <div class="container-fluid header {% cycle "banner-change" "banner-change1" %}">
+        <nav>
+            <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="/">Simon Jung</a></li>
+            <li role="presentation" class="pull-right"><a href="#contact"><i class="fa fa-envelope-o fa-2x"></i></a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+    <h1>BANNER FOR {{ instance.title }}</h1>
+    </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Project Detail</h1>
+    {% if instance.thumbnail %}
+    <img src="{{ instance.thumbnail.get_thumbnail }}" class="img-responsive" />
+    {% endif %}
+    {{ instance.description }}
+    {% for skill in instance.skills.all %}
+        <img src="{{ skill.get_thumbnail }}" class="img-responsive" width="50px"/>
+        {{ skill.name }}
+    {% endfor %}
+    {% for link in instance.related_links.all %}
+        <img src="{{ link.get_thumbnail }}" class="img-responsive" />
+    {% endfor %}
+
+    {#    {% for skill in project.skills.all %}#}
+{#        {{ skill.get_thumbnail }} hey look st me<br/>#}
+{#            {{ skill.name }}<br/>#}
+{#    {% endfor %}#}
+
+<a href="{% url 'projects:home' %}"> link to homepage</a>
+<hr/>
+{% endblock content %}
