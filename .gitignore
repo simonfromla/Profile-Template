@@ -3,6 +3,7 @@ include/
 lib/
 pip-selfcheck.json
 src/mysite/local_config.py
+src/mysite/settings
 src/static/
 src/.idea/
 .idea/
